@@ -1,0 +1,18 @@
+[Unit]
+Description=Go Ping Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/goping
+# Limit CPU and Memory usage
+MemoryMax=50M
+CPUQuota=10%
+
+# Restart
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
